@@ -9,5 +9,6 @@ kubectl get pods -o wide
 
 # create pod from yaml
 kubectl create -f pod-defination.yaml
-
+or
+kubectl apply -f pod-1.yaml
 

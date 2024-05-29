@@ -1,0 +1,23 @@
+# ReplicationController
+#are the oldest version of replicaset, with the 'apiversion' v1. also 'selector' section is not define in it.
+
+kubectl create -f ReplicationController-defination.yaml
+kubectl get replicationController
+kubectl get pods
+
+# Replicaset#
+# it have selector in it, with the matchLabels feature to moniter the activity of pods in cluster.
+# machLabels-->app:frontend = labels-->app: frontend
+
+kubectl create -f replicaset-defination.yaml
+kubectl get replicaset
+
+# how to scale the replica from 3 to 6
+# change the value in defination of ' replicas: 6' and run kubectl replace
+kubectl replace -f replicaset-defination.yaml
+or 
+kubectl scale --replicas=6 -f replicaset-defination.yaml
+kubectl scale --replicas-6 replicaset nginx-replicaset
+
+kubectl delete replicaset nginx-replicaset
+
