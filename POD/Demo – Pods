@@ -1,0 +1,13 @@
+kubectl run nginx --image nginx
+kubectl get pods
+
+# to see the details of pods
+kubectl describe pod nginx
+
+# for get more infromation
+kubectl get pods -o wide
+
+# create pod from yaml
+kubectl create -f pod-defination.yaml
+
+
