@@ -1,0 +1,53 @@
+# # how to run k8s in production , we need the deployments.
+  # 1- for deployed multiple instance
+  # 2- rolling update: update the new version in all by one by one. 
+  # 3- rolling back: the old changings
+  # 4- pause the env.
+  # 5- start/resume  the env.
+
+#architecture:
+  # Deployment-->ReplicaSet-->Pod-->Containers--->myapp.
+
+kubectl create -f Deployment-defination.yaml
+kubectl get deployments
+kubectl get replicasets
+kubectl get pods
+kubectl get pods -o wide
+
+kubectl describe deployments myapp-deployment
+
+kubectl rollout status deployment/myapp-deployment
+kubectl rollout history deployment/myapp-deployment
+
+# there are 2 type of deployment 
+1- recreate                    #destroy all first and then up the all again.
+2- rolling update(default)     #destroy one by one pod and up one pod againt him. 
+
+kubectl apply -f Deployment-defination.yaml
+kubectl set image deployment/myapp-deployment nginx=nginx:1.24.0
+
+# NOTE
+  #then you update the deplyment using the commandline / predefine commands. which will change your configration and add some default configration setting.
+  #to view the 'StrategyType' of your deployment use the 'Describe' command to view the difference.
+kubectl describe deployment myapp-deployment
+
+#roullback
+kubectl rollout undo deployment/myapp-deployment
+
+#create deplyment without defination 
+kubectl run nginx --image=nginx
+
+#NOTE
+#to recored the history of your deployment use the '--record' option.
+kubectl create -f Deployment-defination.yaml --record
+kunbectl edit deployment myapp-deployment --record
+
+#summarize commands
+kubectl create
+kubectl get
+kubectl set image
+kubectl rollout status
+kubectl rollout history
+kubectl rollout undo
+kubectl delete deployment
+kubectl edit deployment

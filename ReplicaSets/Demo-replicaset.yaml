@@ -21,3 +21,11 @@ kubectl scale --replicas-6 replicaset nginx-replicaset
 
 kubectl delete replicaset nginx-replicaset
 
+kubectl describe replicaset nginx-replicaset
+
+#open the runing replicaset file(temp. file) this file is mapped to the othere original file, which you writen before.
+kubectl edit replicaset nginx-replicaset
+
+kubctle scale replicaset nginx-replicaset --replicas=2
+kubectl get replicaset
+kubctrl get pods

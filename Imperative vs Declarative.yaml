@@ -1,0 +1,17 @@
+# imparitive approch mean define?
+    # tell him each and every thing like, what to do?
+    # how to do?
+
+kubectl run --image=nginx nginx
+kubectl create deployment --image=nginx nginx
+kubectl expose deployment nginx --port 80
+kubectl edit deployment nginx
+kubectl scale deployment nginx --replicas=6
+kubectl set image deployment myapp-deployment nginx-container=nginx:1.18-perl
+kubectl create -f nginx.yaml
+kubectl replace -f nginx.yaml
+kubctl delete -f nginx.yaml
+
+#declarative approch mean?
+    #just tell us, what to do?
+    #not how to do?
