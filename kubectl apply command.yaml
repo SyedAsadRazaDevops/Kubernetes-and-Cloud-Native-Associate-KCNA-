@@ -1,0 +1,13 @@
+# There are 3 set of statges in 'apply' command.
+  #then you use the apply command they do littele bit more step to record the status, then save the curreent state in 'JSON' with the name of ' Last applied configration'.
+
+Local-file---> Last applied configration--->Live kubernets
+nginx.yaml---> JSON (temp save status)---> live object runing configration
+
+kubectl apply -f nginx.yaml
+
+#HOW can we see the json file last configration?
+  #you can see in the live object configration, with the lable 'annotations' under the '/last-applied-configration' variable.
+kubectl describe deployment myapp-deployment
+
+#kubectl create and replace command did not save the last configration

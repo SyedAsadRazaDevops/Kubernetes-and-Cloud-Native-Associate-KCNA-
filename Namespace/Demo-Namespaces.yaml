@@ -1,0 +1,29 @@
+# namespaces are use for lsolation of objects.
+#bydefault there is already a name space with the name, 'default'.
+ Default namespace
+
+#you can create multiple namespace , but it is recommended to use in production / enterprise or even if you had multipe devserver.
+
+# DNS formate to connect the namespace objects
+servicename . namespace . service . domain
+   db-service.dev.svc.cluster.local
+
+mysql.connect("db-service.dev.svc.cluster.local")
+mysql.connect("db-service")
+
+
+kubectl get pods --namespace=dev
+kubectl create -f nginx.yaml --namespace=dev
+
+kubectl create -f namespace.yaml
+kubectl create namespace dev
+
+# TO CHANGE THE DEFAULT NAMESPACE USE THIS COMMAND.
+kubectl config set-context $(kubectl config current-context) --namespace=dev
+kubect get pods
+kubectl get pods --namespace=default
+
+kubectl get pods --all-namespaces
+
+# to create the compute-quta of our name space use this name space
+resource-quota.yaml
