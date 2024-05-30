@@ -2,16 +2,35 @@
     # tell him each and every thing like, what to do?
     # how to do?
 
+#CREATE OBJECTS commands
 kubectl run --image=nginx nginx
 kubectl create deployment --image=nginx nginx
 kubectl expose deployment nginx --port 80
+
+#UPDATE OBJECTS commands
 kubectl edit deployment nginx
 kubectl scale deployment nginx --replicas=6
 kubectl set image deployment myapp-deployment nginx-container=nginx:1.18-perl
+
 kubectl create -f nginx.yaml
+
+#use this replace command instad of 'edit' command, then you use the 'edit' you did not track the deployment or your local-file for the time of creation.  
 kubectl replace -f nginx.yaml
+kubectl replace --force -f nginx.yaml
+
 kubctl delete -f nginx.yaml
+
 
 #declarative approch mean?
     #just tell us, what to do?
     #not how to do?
+
+#CREATE OBJECTS commands
+#use the 'apply' command instat of 'create' command. it will auto create if this is not created and apply the changes to the runing one.
+kubectl apply -f nginx.yaml
+# to create multiple object just give the path.
+kubctl apply -f /path/to/config-files
+
+#UPDATE OBJECTS commands
+#always use the apply command to avoid the error chances and for the production approch.
+kubectl apply -f nginx.yaml
