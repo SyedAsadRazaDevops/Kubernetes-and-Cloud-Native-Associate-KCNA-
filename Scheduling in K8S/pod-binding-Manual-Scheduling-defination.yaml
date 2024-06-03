@@ -8,3 +8,9 @@ target:
   kind: Node 
   metadata: 
   name: node02
+
+
+# to execute taht you must convert the yaml file to JSON file.
+  #how to execute?
+    # use the curl command and pass this with the post request in json to the running pod to bind them to run on spacif node of cluster.
+    
