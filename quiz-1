@@ -1,0 +1,60 @@
+When using the kubectl apply command in Kubernetes, which of the following sources does it consider before deciding what changes to make?
+How can you view detailed information about a specific pod named "my-app-pod" in Kubernetes?
+How does a replica set know which pods to monitor?
+What is the purpose of assigning quotas to Kubernetes namespaces?
+What is the correct API version to use in the replication controller definition file?
+Why does a ReplicaSet require a selector definition, even if the pod definition is provided in the template?
+How can you check the status of a deployment rollout in Kubernetes?
+How can you view the created Replicaset in Kubernetes?
+In which Kubernetes namespace are the resources created that should be made available to all users?
+By default, when a Docker container is deployed within a pod, how can users access the application?
+Is the “selector” field a required field in a ReplicationController?
+Why is the use of a replication controller important in Kubernetes?
+What is the default deployment strategy in Kubernetes where the application never goes down during the update?
+What is the primary role of controllers in Kubernetes?
+Why would you create separate namespaces for dev and production environments in Kubernetes?
+How can you rollback a Kubernetes deployment to a previous revision?
+Why is the "last applied configuration" feature useful in Kubernetes?
+What command can you use to update the image of your application in a Kubernetes deployment without modifying the deployment definition file?
+Why is it beneficial to use labels in Kubernetes when deploying multiple pods?
+Where should the user input be specified for the labels in a ReplicaSet's selector?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
