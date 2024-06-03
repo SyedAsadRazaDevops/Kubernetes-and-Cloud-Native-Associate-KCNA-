@@ -1,0 +1,26 @@
+# What are taints and tolerations?
+  # Taints are the opposite -- they allow a node to repel a set of pods. Tolerations are applied to pods.
+  #Tolerations allow the scheduler to schedule pods with matching taints.
+
+#NODES ARE BE TAINTS AND PODS ARE BE TOLERATIONS.
+
+# Effect: The effects define what will happen to the pods that do not tolerate a Taint. There are 3 Taint effects:
+  # NoSchedule: A pod that cannot tolerate the node Taint, should not be scheduled to the node.
+  # PreferNoSchedule: The system will avoid placing a non-tolerant pod to the tainted node but is not guaranteed.
+  # NoExecute: New pods will not be scheduled on the node, and existing pods on the node, if any will be evicted if they do not tolerate the Taint.
+
+    # Eg: Key = key1; Value = value1; Effect = NoSchedule
+
+kubectl taint node <node-name> key=value:<taint-effect>
+
+kubectl taint node node01 app=blue:NoSchedule
+kubectl taint node node02 project=tickeing:PreferNoSchedule
+
+#What is node affinity and pod affinity in Kubernetes?
+  #Node affinity is a set of rules used by the scheduler to determine where a pod can be placed. The rules are defined using custom labels on nodes and label selectors specified in pods.
+  #Node affinity allows a pod to specify an affinity (or anti-affinity) towards a group of nodes it can be placed on.
+
+#the scheduler did not schedule any pod in the master node! WHY ?
+  #becuse the taint is already define to the masternode/control-plan.
+
+kubectl describe node kubemaster | grep Taint
