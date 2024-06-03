@@ -1,0 +1,22 @@
+# labels are used to set the tags with the pod to i dentifiy the things.
+# selectors are you to filter the thing with the help of labels.
+
+kubectl get pods --selector app=frontend
+
+# the labels define in 'replicaset' will be used for the replicasets.
+  # the labels define in template will be used for the pods.
+    #the import thing is the labels in 'matchLabels' will connect the each others, and then they are runing properly.
+
+
+# YOU CAN ALSO USE THE ANNOTATIONS
+  # to define the build or version information.
+
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: app
+  lables:
+    app: nginx
+  annotations:
+    buildversion: v1.32
