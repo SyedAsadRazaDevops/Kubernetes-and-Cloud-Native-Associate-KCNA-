@@ -1,0 +1,34 @@
+#Node Selectors
+  #to set the limitaion on pod so that they can run on spacific node called Node Selectors.
+    #example
+    #there are three nodes, A , B , C.
+      #A had 32 GB ram , 1TB size , and othere had 8 GB ram and 150 GB storage. we want to run the higher process to run on node 'A' . Rather then 'B' AND 'C'.
+
+THERE ARE TWO WAYS TO DO it. 
+# NODE SELECTORS:
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: myapp
+spec:
+  containers:
+  - name: nginx
+      image: nginx
+  nodeSelector:
+    size: Large
+
+    #how to add this labels in node?
+      kubectl label nodes node01 size:Large
+      # now create the new node with label.
+      kubectl create -f pod-defination.yaml
+
+# but it failed if, i say to place the 'POD' on large and medium node, then this approch is not a good idea.
+  # for thois there is  'affinity and anti-affinity' feature is introduce in k8s.
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+#this Node Affinity feature provide us the advance capabilities to limite pod placement on specific nodes.
+  # GREAT POWER COMES GREAT COMPLEXITIY.
+
+apiVersion:
+kind:
+metadata:
+  name: myapp
+spac:
+  containers:
+  - name: dataprocess
+    image: golang
+  affinity:
+   nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExectution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: size
+            operator: In
+            value:
+            - Large
+            - Medium 
+
+
+# there are three comman 'operater' are this:
+  # In / NotIn / Exists
+
+#THERE ARE TWO TYPES OF NODES AFFINITY
+   #required and preferred
+https://www.linkedin.com/pulse/node-affinity-kubernetes-christopher-adamson-xei3c/
+   
+
+

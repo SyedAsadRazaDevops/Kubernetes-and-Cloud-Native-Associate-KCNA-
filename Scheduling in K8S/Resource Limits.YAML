@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: limite-mypod
+  lables:
+    app: nginx
+spec:
+  containers:
+  - name: my-limit-app
+    image: my-limit-app
+    ports:
+    - containerPort: 8080
+  resources:
+    requests: 
+      memory: "2Gi"
+      cpu: 1
+    limits: 
+      memory: "4Gi"
+      cpu: 2
