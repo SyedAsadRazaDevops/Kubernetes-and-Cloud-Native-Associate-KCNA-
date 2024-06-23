@@ -1,0 +1,29 @@
+#A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them.
+
+#USECASE
+  # we can use this approch to deployed the monitering solution or logs viewer on every node. 
+  # the kubeproxy component can be deployed as daemonSet in the cluster.
+  # for the networking we can use this approch to deployed the weave-net.
+
+# you can create the same yaml file as 'ReplicaSet' for the 'DaemonSet' with the just change the kind name.
+
+kubectl get daemonsets
+kubectl describe daemonsets monitering-daemon
+
+# who doest it work?
+  #it had the default behavior in the k8s in version v1.12
+  #in version v1.12 , we use the nodeaffinity and default scheduler
+
+
+
+
+
+
+
+
+
+
+
+
+
+

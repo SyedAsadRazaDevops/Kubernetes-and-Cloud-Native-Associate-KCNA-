@@ -1,0 +1,40 @@
+# how to create the pod without master node?
+  # pods are created by kubelet by the instrction on api-server, and api-server recive the instruction from scheduler.
+  # and scheduler get the data from etcd.
+
+# if you just had the kubelet server only, can you create the pods?
+  # we can create the pod by giving him the pod.yaml file.
+  # there is a statis path where kubelet read the pod.yaml file from directory (staticPodPath: /etc/kubernetes/manifests/)
+
+kubelet.service
+  # --config=kubeconfig.yaml
+
+# how to view the pods?
+   #docker ps
+   # why not the kubctl command?
+     # becuse we dont have the master or cluster to view it. 
+        # there are opensource tool that we used are [ containerd ,  cri-o ]
+        # for the ps command like [ crictl ps, nerdctl ps ]
+
+# kubeapi server can also know about the static pod that are runing in the pods.
+  # becuse it create a mirror of the static pod, but cannot edit/delete it.
+    # it can be remove from the node mainfests folder.
+  kubectl get pods
+
+#USE CASE
+  # you can use the statict pod to deployed the control plane components itself as pods.
+    # 1 install the kublet on the all master nodes.
+    # 2 create pod-defination file, which had the docker images of control plan component.
+       # apiserver.yaml / controller-manger.yaml / etcd.yaml / weave-net.yaml / kube-scheduler.yaml / coredns.yaml   
+    # 3  place these files in the static path which is define in the kubelet.service.
+    # 4 now kubelet will deployed the control-plane themselves.
+  
+# no need to download or install the binaries, or configre the services or dont worry about the crashing.
+kubectl get pods -n kube-system
+
+
+
+
+
+
+

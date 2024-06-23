@@ -1,0 +1,16 @@
+# secure the k8s cluster and divided the access to least previliges.
+    #1 ADMIN                     (users)
+    #2 DEVELOPERS                (users)
+    #3 APPLICATION END USER 
+    #4 BOTS - AUTOMATION TOOLS   (service accounts)
+
+# **you cant create user in k8s, k8s did not manage users account natively !**
+    # it relayes on external sources.
+        # like file with all user data in it.
+        # or third party ltap service to store data, like active directory.
+
+# but good thing is that k8s control the **service accouts** for bots users.
+    kubectl create serviceaccount <name>
+    kubectl create serviceaccount sa1
+
+    kubectl get serviceaccount

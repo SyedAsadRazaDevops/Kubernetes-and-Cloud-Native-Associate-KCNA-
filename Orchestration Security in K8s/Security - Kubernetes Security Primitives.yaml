@@ -1,0 +1,12 @@
+# AutoSclaing#
+  #there are 3 factors of AS.
+    #1 Design for scale architure resourse and pods.
+    #2 automatic operations
+    #3 bidireaction - scale up and down
+
+#Vertical vs Horizontal 
+
+horizontal is flexibale and faulttorent.
+  # horizontal pod autoscaler
+  # vertisal pod autoscaler
+  # cluster autoscaler

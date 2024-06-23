@@ -1,0 +1,10 @@
+# how to create our own custome scheduler?
+  # you can define the scheduler then creating the pods.
+
+# default scheduler name is 'default-scheduler'.
+  #you can change the kube-scheduler file name 'scheduler-config.yaml'.
+
+apiVersion: kubescheduler.config.k8s.io/v1
+kind: kubeSchedulerConfigration
+profiles:
+- schedulerName: default-scheduler

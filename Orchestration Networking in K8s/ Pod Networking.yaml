@@ -1,0 +1,16 @@
+# service DNS records?
+# pod DNS records?
+
+
+we had 3 node k8s cluster --> with some pods and services --> each node had node name --> and each node had ip adress assign to them.
+  # these node name and node ip register in DNS server in the organization
+
+as same as above k8s deployed the same DNS server in cluster with the name of 'KUBE-DNS'
+  # in cluster we just focus on pod and servcies in cluster , rather then nodes.
+    # then ever the service is craeted the 'hostname = ip address' which provided the access to the application.
+      # if you are useing your custome domain spacce, you need to define them to access them.
+        #example: curl http://google.com.<namespace>/
+
+        #here is the full defination example how he work?
+          # curl http://<hostname>.<namespace>.<type>.<root>.<ip-address>
+          # culr http://web-nginx.my-namespace.svc.<cluster.local>.10.10.1.117
