@@ -14,3 +14,22 @@
     kubectl create serviceaccount sa1
 
     kubectl get serviceaccount
+
+# kubernates use the kube-apiserver to control the authentication 
+    #there many type of authentication:
+        #1 static password file
+        #2 static tockens file
+        #3 Certificates
+        #4 LDAP idenity services by third party
+
+
+# MAKE A .CSV EXCLE FILE WITH THE username,pwd,and unique-id or if you need group add grop colum.
+    # ad add him in the kube-apiserver 
+    # --basic-auth-file=user-details.csv
+    
+    #same as in stattic token,username and id, or if you need group add grop colum.
+    # --token-auth-file=user-details.csv
+
+curl -v -k https://master-node-ip:8283/api/v1/pods -u "username:pwd"
+curl -v -k https://master-node-ip:8283/api/v1/pods --header "Authorization: Bearer  <token>"
+

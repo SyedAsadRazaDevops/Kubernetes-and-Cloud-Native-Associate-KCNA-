@@ -1,0 +1,37 @@
+there are different autherization Mechanisms
+  # NODE
+    # node-autorizer
+      # the any request comming from the 'system node' tag are varifed ,
+      # we created the certificate with the system: node tag, which are autorized to acces the cluster.
+        # there user are like, kubelet = which access the kubeapi on read and take the write permission. 
+
+  # ABAC
+    # we define the policy for each user with some access,
+    # we need to create users (dev-user, dev-user2, dev-user3, security-user1) can view ,create,and delete the pods.
+      # {"kind: policy","spec:" {2users": "dev-users", "namespace": "*", "resources": "pods", "apigroups":"*"}}
+      # after that restart the kube-api server
+
+  # RBAC
+    #role-base-access-control 
+      # isntad of creating the user and groups, we can creare the roles, and assign the roles to the users 
+      # creating the role with the right set of permissions.
+      # the most stander approch.
+
+
+  # WEBHOOK
+    # if you are planing to out source the autorization machanisam, and did not want to mange it in local k8s 
+    # it an third part tools.
+      # we used like ( OPEN POLICY AGENT) administration controler.
+
+
+  # AlwaysAllow
+    #allow all request 
+
+  #AlwaysDeny 
+    # deny all the request
+
+
+how to change the authorization mode in k8s?
+  # open the kube-api server, 
+    # --authorization-mode=AlwaysAllow (default)
+    # --authorization-mode=Node,RBAC,Webhook (custom)

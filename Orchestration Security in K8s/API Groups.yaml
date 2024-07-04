@@ -1,0 +1,24 @@
+curl https://kubemaster:6443/version
+# there are multiple routes in the api
+  # /metrics
+  # /healthz
+  # /api (core)
+    # v1/        
+      #pod,,namespaces,rc,events,services,secrets,PV,PVC,configmaps,endpoints,nodes 
+  # /apis (named)
+    # apps, extentions, networking.k8s.io, storage.io,certificate.k8s.io
+  # /logs
+
+#to get the list of api in the k8s url.
+curl https://localhost:6443 -k <pass the certificate>
+
+#but there is an other option to luched the "kubectl proxy" command, which will starting the server on localhost port 8001
+  # so you get the routs/of api without ,password/ certificate
+
+KUBE PROXY ≠ KUBECTL PROXY 
+
+KUBECTL PROXY  is a http service created my ctl utility to access the kube api server.
+
+
+under the api there are routs, a route which had multipe route inside called GROUP-API.
+

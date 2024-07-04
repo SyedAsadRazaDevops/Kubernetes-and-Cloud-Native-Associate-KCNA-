@@ -1,0 +1,17 @@
+# to genrate SSL there many ways such as 
+  # EASYRSA
+  # OPENSSL (RECOMMENDED)
+  # CFSSL
+
+# how to genrate private key open ssl.
+ 
+ #setp1 "genrate keys" -->ca.key 
+    #step2 make "certificate signing request" --> ca.car
+      #step3  #sign the certifaicate" --> ca.crt 
+
+  openssl genrsa -out ca.key 2048
+  openssl req -new -key ca.key -subj "/CN=KUBERNATES-CA" -out ca.csr
+  openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt
+
+# NOW WE HAD THE SELFED SIGN CERTIFICATE BY OPENSSL FOR THE NAME "KUBERNATES-CA".
+
