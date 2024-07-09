@@ -1,0 +1,8 @@
+clusterrols
+clusterrolesbinding
+
+# these role are use on the node level to assign control the access on cluster level
+  # we create the multiple role like admin-cluster, dev-cluster 
+    # its same as role and rolebinding
+
+    

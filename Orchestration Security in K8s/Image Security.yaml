@@ -1,0 +1,39 @@
+# how to secure the images, and downlod from an other custom image 
+
+# public repositry
+
+image: <registry> / <user/company-account> / <image-name>
+# here is the default path then you use the [image: nginx]
+image: docker.io / library / nginx
+
+image: gcr.io/ kubernates-e2e-test/dnsutils
+
+# private repository
+
+# first login to the private-repositry
+docker login private-repositry.io
+
+docker run private-repositry.io/apps/internal-app
+
+
+
+# how the k8s get the image from private repository and how to authenticate your selft , where we define these thing?
+
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: nginx-pod
+spec:
+  containers:
+  - name: my-custome-nginx
+    image: private-repositry.io/apps/internal-app
+  imagePullSecrets:
+  - name: my-reg-cred
+
+# to login the private registory i created secret of docker-registry which had the all credentails details, 
+kubectl create secret docker-registry my-reg-cred \
+  --docker-server= private-registry.io \
+  --docker-username= registory-user \
+  --docker-password= registory-password \
+  --docker-email= registory-user@email.com 
+

@@ -1,3 +1,5 @@
+# first we will create the role for the user, role name is developer;
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: role
 metadata:
@@ -6,6 +8,40 @@ rules:
 - apiGroups: [""]
   resources: ["pods"]
   verbs: ["list","get","create","updates","delete"]
+# you can add multiple role like that.
+- apiGroups: [""]
+  resources: ["ConfigMap"]
+  verbs: ["create","list"]
 
 
 kubectl create -f developer.yaml
+
+
+# after create the role we need to bind this role to our user dev-user
+  # so we used the rolebinding;
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: roleBinding
+metadata:
+  name: devuser-developer-binging-role
+subjects:
+- kind: user
+  name: dev-user
+  apiGroups: rbac.authorization.k8s.io/v1
+roleRef:
+  kind: role
+  name: developer
+  apiGroups: rbac.authorization.k8s.io/v1
+
+
+kubectl get roles
+kubectl get rolebindings
+kubectl describe role developer
+
+# if you are in a spacific user, how to check the access did i create this.
+kubectl auth can-i create deployment
+kubectl auth can-i delete nodes
+#or if you check this with other user in this state , use this
+kubectl auth can-i create deployment create pods --as dev-user
+kubectl auth can-i create pods --as dev-user --namespase prod
+
